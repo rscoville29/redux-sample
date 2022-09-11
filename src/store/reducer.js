@@ -78,6 +78,9 @@ export const subtractNumberThunk = (number)=>{
     }
 }
 
+
+//reducer
+
 const initialState = {counter: 0};
 export default function myReducer(state = initialState, action){
     switch(action.type){

@@ -1,6 +1,6 @@
 import './App.css';
 import {useSelector, useDispatch} from 'react-redux';
-import {incrementThunk, decrementThunk} from './store/reducer'
+import {incrementThunk, decrementThunk, subtractNumberThunk, addNumberThunk} from './store/reducer'
 import {useState, useEffect} from 'react';
 
 function App() {
@@ -28,10 +28,11 @@ dispatch(decrementThunk());
 }
 
 const handleAdd = ()=>{
-
+dispatch(addNumberThunk(numberToAdd));
 }
-const handleSubtract = ()=>{
 
+const handleSubtract = ()=>{
+dispatch(subtractNumberThunk(numberToSubtract))
 }
 
 const handleAddChange = (event) => {
