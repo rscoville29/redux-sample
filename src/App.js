@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {incrementThunk, decrementThunk, subtractNumberThunk, addNumberThunk} from './store/reducer'
 import {useState, useEffect} from 'react';
+import {actions} from './store/index';
 
 function App() {
 const dispatch = useDispatch();
@@ -21,23 +21,23 @@ useEffect(()=>{
 }, [numberToSubtract]);
 
 const increment = ()=>{
-  dispatch(incrementThunk());
+  dispatch(actions.increment());
 };
 
 const decrement = ()=>{
-dispatch(decrementThunk());
+dispatch(actions.decrement());
 }
 
 const handleAdd = (event)=>{
   //added preventDefault to keep page from reloading on submit and resetting the state
 event.preventDefault();
-dispatch(addNumberThunk(numberToAdd));
+dispatch(actions.addNumber(numberToAdd));
 }
 
 const handleSubtract = (event)=>{
   //added preventDefault to keep page from reloading on submit and resetting the state
 event.preventDefault();
-dispatch(subtractNumberThunk(numberToSubtract))
+dispatch(actions.subtractNumber(numberToSubtract))
 }
 
 const handleAddChange = (event) => {
