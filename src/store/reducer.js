@@ -20,7 +20,7 @@ const decrement = ()=>{
 const addNumber = (number)=>{
     return {
         type: ADD,
-        number
+        number:Number(number)
     }
 }
 
@@ -89,9 +89,9 @@ export default function myReducer(state = initialState, action){
             case DECREMENT:
                 return {counter:state.counter - 1};
                 case ADD:
-                    return {counter: state.counter += action.number};
+                    return {counter: (state.counter + action.number)};
                     case SUBTRACT:
-                        return {counter: state.counter -= action.number}
+                        return {counter: state.counter - action.number}
         default:
             return state;
     }
