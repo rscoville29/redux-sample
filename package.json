@@ -7,6 +7,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -16,9 +19,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "webpack",
+    "build:dev": "npm run build -- --watch --mode=development",
+    "start": "node server",
+    "start:dev": "npm run build:dev & npm run start-server",
+    "start:dev:logger": "LOGGING=true npm run start:dev",
+    "start:dev:seed": "SEED=true npm run start:dev",
+    "start-server": "nodemon server -e html,js,scss --ignore public",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,5 +45,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0"
   }
 }
