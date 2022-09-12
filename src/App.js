@@ -30,7 +30,7 @@ dispatch(actions.decrement());
 const handleAdd = (event)=>{
   //added preventDefault to keep page from reloading on submit and resetting the state
 event.preventDefault();
-dispatch(actions.addNumber(numberToAdd));
+dispatch(actions.addNumber(Number(numberToAdd)));
 }
 
 const handleSubtract = (event)=>{

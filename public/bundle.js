@@ -1900,7 +1900,7 @@ function App() {
   var handleAdd = function handleAdd(event) {
     //added preventDefault to keep page from reloading on submit and resetting the state
     event.preventDefault();
-    dispatch(_store_index__WEBPACK_IMPORTED_MODULE_2__.actions.addNumber(numberToAdd));
+    dispatch(_store_index__WEBPACK_IMPORTED_MODULE_2__.actions.addNumber(Number(numberToAdd)));
   };
 
   var handleSubtract = function handleSubtract(event) {
@@ -1965,10 +1965,10 @@ var counterSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)
       state.counter--;
     },
     addNumber: function addNumber(state, action) {
-      state.counter += action;
+      state.counter += action.payload;
     },
     subtractNumber: function subtractNumber(state, action) {
-      state.counter -= action;
+      state.counter -= action.payload;
     }
   }
 });
